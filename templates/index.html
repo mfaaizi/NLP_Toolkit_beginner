@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Toolkit | Localhost</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-icon">NLP</div>
+                <div class="logo-text">Toolkit</div>
+            </div>
+
+            <nav class="nav">
+                <button class="nav-item active" data-tool="paraphrase">
+                    <span class="nav-icon">↻</span>
+                    <span class="nav-label">Paraphraser</span>
+                </button>
+                <button class="nav-item" data-tool="humanize">
+                    <span class="nav-icon">✎</span>
+                    <span class="nav-label">Humanizer</span>
+                </button>
+                <button class="nav-item" data-tool="grammar">
+                    <span class="nav-icon">✓</span>
+                    <span class="nav-label">Grammar Fix</span>
+                </button>
+                <button class="nav-item" data-tool="summarize">
+                    <span class="nav-icon">☰</span>
+                    <span class="nav-label">Summarizer</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="status-dot" id="status-dot"></span>
+                    <span class="status-text" id="status-text">Ready</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <header class="header">
+                <div class="header-content">
+                    <h1 id="page-title">Text Paraphraser</h1>
+                    <p id="page-desc">Generate multiple rephrased versions of your text while preserving meaning.</p>
+                </div>
+            </header>
+
+            <div class="workspace">
+                <!-- Input Panel -->
+                <div class="panel input-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">Input</span>
+                        <span class="char-count" id="input-count">0 chars</span>
+                    </div>
+                    <textarea 
+                        id="input-text" 
+                        class="text-area" 
+                        placeholder="Type or paste your text here..."
+                        spellcheck="false"
+                    ></textarea>
+                    <div class="panel-footer">
+                        <button class="btn btn-secondary" id="clear-btn">Clear</button>
+                        <button class="btn btn-primary" id="action-btn">
+                            <span class="btn-text">Paraphrase</span>
+                            <span class="spinner hidden" id="btn-spinner"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Output Panel -->
+                <div class="panel output-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">Output</span>
+                        <div class="output-actions">
+                            <button class="icon-btn" id="copy-btn" title="Copy to clipboard">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="output-body" id="output-body">
+                        <div class="empty-state">
+                            <div class="empty-icon">📝</div>
+                            <p>Your results will appear here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toast-msg">Copied!</span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
