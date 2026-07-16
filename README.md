@@ -1,6 +1,6 @@
 # 🧠 NLP Toolkit
 
-A sleek, dark-themed web application that brings together 4 powerful NLP tools in one place — all running locally on your machine with state-of-the-art open-source Transformer models.
+A sleek, dark-themed web application that brings together 4 powerful NLP tools in one place — all running locally on your machine with state-of-the-art open-source Transformer models. Totally vibe coded site, made in just an hour and is much more capable of doing things.
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python)
 ![Flask](https://img.shields.io/badge/Flask-2.0+-black?style=for-the-badge&logo=flask)
